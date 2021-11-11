@@ -1,0 +1,134 @@
+/* Stylesheet */
+
+/* load local font  */
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url(Chillax-Regular.woff2), url(assets/Chillax-Regular.woff);
+}
+
+h1 {
+  
+}
+
+body {
+	/* base styling */
+  text-align: center;
+	
+	color: purple;
+  /* apply local font */
+	font-family: "IBM Plex Mono";
+	
+	/* typography */
+  font-size: 1.25em;
+	line-height: 1.5em;
+}
+
+
+/* Nav Menu */
+nav {
+  width: 0;
+  
+  /* position'ing */
+  position: absolute;
+  top: 0;
+  left: 29em;
+  height: 15em;
+  
+  /*  alignment  */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Nav Links */
+nav a {
+  color: green;
+  text-decoration: underline;
+  margin: 30px;
+}
+nav a:hover {
+  color: gray;
+  transition-duration: 1s;
+}
+
+/* Main : Hide Menu */
+main {
+  position: relative;
+  
+  background-color: white;
+  min-height: 100vh;
+  
+  /* x translate matches width of navigation */
+  transform: translate( 0, 50px);
+    /* animate with transition */
+  transition: transform 1s;
+}
+
+/* I spent hours trying to figure out why the transform doesn't work properly. HELP! I changed the px to what you said would work, but for some reason the menu button was hidden out of sight when I did. */
+
+/* Main Content : Show Menu */
+main.open {
+  transform: translate(-100px, 0);
+}
+
+/* Menu Button */
+a.toggle-nav {
+  display: inline-block;
+  padding-top: 1em;
+  text-decoration-style: dotted;
+  color: black;
+}
+
+/* Menu Button Icon */
+a.toggle-nav img {
+  vertical-align: middle;
+}
+
+/* Mobile 
+  0 to 26em (416 pixels)
+*/
+@media only screen and (min-width: 0) { 
+    
+  
+  nav {
+    width: 50%;
+  }
+  
+  main.open {
+    transform: translate( 50%, 0);
+  }
+  
+}
+
+/* Tablet 
+  26em (416 pixels) to 72em (1,152 pixels)
+*/
+@media only screen and (min-width: 26em)  {
+    
+  
+  nav {
+    width: 30%;
+  }
+  
+  main.open {
+    transform: translate( 30%, 0);
+  }
+
+  
+}
+
+/* Desktop 
+   72em (1,152 pixels) to 90em (1440 pixels)
+*/
+@media screen and (min-width: 72em)  { 
+  
+  
+  nav {
+    width: 300px;
+  }
+  
+  main.open {
+    transform: translate( 300px, 0);
+  }
+
+}
